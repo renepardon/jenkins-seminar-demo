@@ -9,10 +9,10 @@ pipeline {
     }
     stage('Build') {
       steps {
-          script{
+          script {
           def library = load("Function.groovy")
           sh 'echo Test'
-          // def message = library.getBranchName()
+          def message = library.getBranchName()
           // println '$message'
         }
       }
