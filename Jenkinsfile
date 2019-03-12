@@ -9,13 +9,18 @@ pipeline {
   }
 
   stages {
+    stage ('Checkout' ) {
+		steps {
+			checkout scm;
+		}
+	/*		
     stage ('Test') {
-        /*agent {
+        agent {
           dockerfile {
               filename 'Dockerfile'
               dir '.'
           }
-        } */
+        } 
         steps {
             sh 'echo install dependencies'
             sh 'echo execute our tests'
@@ -48,6 +53,7 @@ pipeline {
         sh "docker rmi $registry:$BUILD_NUMBER-${getDashedBranchName()}"
       }
     }
+	*/
   }
   post {
       always {
