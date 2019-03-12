@@ -57,7 +57,7 @@ pipeline {
 }
 
 def getBranchName() {
-    return script.env.BRANCH_NAME
+    return env.BRANCH_NAME
 }
 
 /**
