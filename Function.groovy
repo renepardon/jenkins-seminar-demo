@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-def getBranchName(env) {
+def getBranchName() {
     // return env.BRANCH_NAME
         println "Super"
 }
