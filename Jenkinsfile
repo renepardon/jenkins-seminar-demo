@@ -9,7 +9,8 @@ pipeline {
       stage('Stage2') {
           steps {
               script {
-                pipefuncs = load "functions.groovy"
+                pipefuncs = load "./functions.groovy"
+                sh "echo $pipefuncs"
                 output = pipefuncs.echoWelt2()
                 sh "echo $output"
               }
