@@ -11,7 +11,7 @@ pipeline {
               script {
                 input = "ls"
                 echo input
-                pipefuncs = load 'functions.groovy
+                pipefuncs = load 'functions.groovy'
                 sh "echo $pipefuncs"
                 output = pipefuncs.echoWelt2()
                 sh "echo $output"
