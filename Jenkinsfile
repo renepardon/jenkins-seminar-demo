@@ -8,7 +8,7 @@ pipeline {
       }
       stage('Stage2') {
           steps {
-              def output = echoWelt()
+              output = echoWelt2()
               sh 'echo $output'
           }
       }
