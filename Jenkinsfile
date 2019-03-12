@@ -10,7 +10,7 @@ pipeline {
       stage('Build') {
         steps {
             script{
-            def library = load()"Function.groovy")
+            def library = load("Function.groovy")
             sh 'echo Test'
             if (library != Null) {
               println library.getBranchName(env)
