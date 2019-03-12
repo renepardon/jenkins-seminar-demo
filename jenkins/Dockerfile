@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:latest
+FROM jenkins/jenkins:lts
 
 ENV TERM xterm
 
@@ -27,8 +27,7 @@ CMD DOCKER_GID=$(stat -c '%g' /var/run/docker.sock) && \
     usermod -aG docker jenkins && \
     usermod -aG staff jenkins
 
-# Mac fix for Seminar :)
-USER 0
+# Fix for Seminar - commented :)
 # USER jenkins
 
 EXPOSE 8080
