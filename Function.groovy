@@ -16,4 +16,4 @@ def getSimpleBranchName() {
 def getDashedBranchName() {
     return getBranchName().replace("/", "-")
 }
-return this
+return this;
