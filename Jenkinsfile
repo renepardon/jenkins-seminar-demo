@@ -1,36 +1,13 @@
 pipeline {
-<<<<<<< Updated upstream
-    agent none
-
-    stages {
-        stage('Test PHP 5.4') {
-          agent { docker 'php:5.4-alpine' }
-          steps {
-            script {
-                sh 'composer install'
-                sh './vendor/bin/phpunit'
-            }
-          }
-        }
-
-        stage('Test PHP 7.3') {
-          agent { docker 'php:7.3-alpine' }
-          steps {
-            script {
-                sh 'composer install'
-                sh './vendor/bin/phpunit'
-            }
-          }
-=======
     agent {
         docker { image 'node:7-alpine' }
     }
+    checkout scm
     stages {
         stage('Build Image') {
             steps {
-                sh 'node --version'
+                sh 'docker build -t jenkinsseminar/demo:branch-2'
             }
->>>>>>> Stashed changes
         }
     }
 }
