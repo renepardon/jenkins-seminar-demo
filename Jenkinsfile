@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    def library = load(Function)
     stages {
       stage ('checkout')
       {
@@ -10,6 +9,7 @@ pipeline {
       }
       stage('Build') {
         steps {
+          def library = load(Function)
           sh 'echo Test'
           sh 'echo $library.getBranchName()'
         }
