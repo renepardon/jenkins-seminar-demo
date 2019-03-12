@@ -1,4 +1,5 @@
 pipeline {
+<<<<<<< Updated upstream
     agent none
 
     stages {
@@ -20,6 +21,16 @@ pipeline {
                 sh './vendor/bin/phpunit'
             }
           }
+=======
+    agent {
+        docker { image 'node:7-alpine' }
+    }
+    stages {
+        stage('Build Image') {
+            steps {
+                sh 'node --version'
+            }
+>>>>>>> Stashed changes
         }
     }
 }
