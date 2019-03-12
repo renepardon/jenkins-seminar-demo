@@ -12,7 +12,7 @@ pipeline {
             script{
             def library = load "Function.groovy"
             sh 'echo Test'
-            println library.getBranchName()
+            println library.getBranchName(env)
           }
         }
       }
