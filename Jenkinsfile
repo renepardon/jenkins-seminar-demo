@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    library = load(Function)
+    def library = load(Function)
     stages {
       stage ('checkout')
       {
