@@ -1,16 +1,14 @@
 pipeline {
-    agent {
-        docker { image 'node:7-alpine' }
-    }
+    agent any
     stages {
-      stage('Checkout') {
-        steps {
-          checkout scm
-        }
-      }
-      stage('Build Image') {
+      stage('Stage1') {
           steps {
-              sh 'docker build -t jenkinsseminar/demo:branch-2'
+              sh 'echo Hallo Welt.'
+          }
+      }
+      stage('Stage2') {
+          steps {
+              sh 'echo Hallo zweite Welt.'
           }
       }
     }
