@@ -11,7 +11,7 @@ pipeline {
 		
 		stage( 'Build Docker' )  {
 			steps {
-				checkout scm;
+				sh '.jenkins/jenkins_docker.sh';
 			}
 		}
 		
