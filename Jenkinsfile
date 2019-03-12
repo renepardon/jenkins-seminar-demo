@@ -1,6 +1,10 @@
 pipeline {
     agent none
 
+    // - checkout scm
+    // - docker images für jeden branch bauen und entsprechend taggen
+    //   (jenkinsseminar/demo:branch-2, jenkinsseminar/demo:latest)
+
     stages {
         stage('Test PHP 5.4') {
           agent { docker 'php:5.4-alpine' }
