@@ -9,14 +9,11 @@ pipeline {
       stage('Stage2') {
           steps {
               script {
-                output = echoWelt2()
+                pipefuncs = load "functions.groovy"
+                output = pipefuncs.echoWelt2()
                 sh "echo $output"
               }
           }
       }
     }
-}
-
-def echoWelt2() {
-   return "Hallo zweite Welt."
 }
