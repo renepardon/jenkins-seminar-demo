@@ -13,6 +13,8 @@ pipeline {
 		steps {
 			checkout scm;
 		}
+	}
+	
 	/*		
     stage ('Test') {
         agent {
