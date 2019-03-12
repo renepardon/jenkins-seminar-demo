@@ -1,4 +1,4 @@
-# jenkins-seminar-demo
+# Aufgabe 6
 
 First we need to install a Jenkins instance with all required Plugins to checkout and build our application.
 
