@@ -1,25 +1,73 @@
 pipeline {
-    agent none
+  agent any
 
-    stages {
-        stage('Test PHP 5.4') {
-          agent { docker 'php:5.4-alpine' }
-          steps {
-            script {
-                sh 'composer install'
-                sh './vendor/bin/phpunit'
-            }
+  environment {
+    registry = "renepardon/jenkinsseminar-demo"
+    registryCredential = 'docker-hub-credentials'
+    dockerImage = ''
+  }
+
+  stages {
+    stage ('Test') {
+        agent {
+          dockerfile {
+              filename 'Dockerfile'
+              dir '.'
           }
         }
+        steps {
+            sh 'echo install dependencies'
+            sh 'echo execute our tests'
 
-        stage('Test PHP 7.3') {
-          agent { docker 'php:7.3-alpine' }
-          steps {
-            script {
-                sh 'composer install'
-                sh './vendor/bin/phpunit'
-            }
-          }
+            sh 'cp index.html test.html'
         }
     }
+
+    stage('Build Image') {
+      steps{
+        script {
+          dockerImage = docker.build registry + ":$BUILD_NUMBER-${getDashedBranchName()}"
+        }
+      }
+    }
+
+    stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
+      }
+    }
+
+    stage('Remove Unused docker image') {
+      steps{
+        sh "docker rmi $registry:$BUILD_NUMBER-${getDashedBranchName()}"
+      }
+    }
+  }
+  post {
+      always {
+          echo 'here we could send a mail or slack/mattermost notification'
+      }
+  }
+}
+
+def getBranchName() {
+    return script.env.BRANCH_NAME
+}
+
+/**
+ * @return the part of the branch name after the slash
+ */
+def getSimpleBranchName() {
+    return getBranchName().substring(getBranchName().lastIndexOf('/') + 1)
+}
+
+/**
+ * @return the branch name splitted with dashes instead of slashes
+ */
+def getDashedBranchName() {
+    return getBranchName().replace("/", "-")
 }
