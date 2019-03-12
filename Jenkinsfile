@@ -10,8 +10,8 @@ pipeline {
           steps {
               script {
                 output = echoWelt2()
-              }
-              sh 'echo $output'
+                sh 'echo $output'
+              }              
           }
       }
     }
