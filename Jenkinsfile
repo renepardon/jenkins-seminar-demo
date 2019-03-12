@@ -1,6 +1,3 @@
-import jenkins.model.*
-jenkins = Jenkins.instance
-
 pipeline {
   agent any
 
@@ -58,7 +55,7 @@ pipeline {
 }
 
 def getBranchName() {
-    return script.env.BRANCH_NAME
+    return env.BRANCH_NAME
 }
 
 /**
