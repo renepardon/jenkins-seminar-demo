@@ -13,7 +13,7 @@ pipeline {
           def library = load("Function.groovy")
           sh 'echo Test'
           def message = library.getBranchName()
-          // println '$message'
+          println '$message'
         }
       }
     }
