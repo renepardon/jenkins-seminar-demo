@@ -1,0 +1,5 @@
+jdk-tool:1.2
+docker-plugin:1.1.6
+git:3.9.3
+workflow-aggregator:2.6
+workflow-cps-plugin:2.64
