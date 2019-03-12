@@ -12,13 +12,8 @@ pipeline {
           script{
           def library = load("Function.groovy")
           sh 'echo Test'
-          if (library != Null) {
-            // def message = library.getBranchName()
-            println '$message'
-          }else
-          {
-            println 'DU NULL'
-          }
+          // def message = library.getBranchName()
+          // println '$message'
         }
       }
     }
