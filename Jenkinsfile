@@ -1,3 +1,4 @@
+def library = Null
 pipeline {
     agent any
     stages {
@@ -10,9 +11,14 @@ pipeline {
       stage('Build') {
         steps {
             script{
-            def library = load "Function.groovy"
+            library = load "Function.groovy"
             sh 'echo Test'
-            println library.getBranchName(env)
+            if (library != Null) {
+              println library.getBranchName(env)
+            }else
+            {
+              println 'DU NULL'
+            }
           }
         }
       }
