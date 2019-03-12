@@ -10,17 +10,17 @@ pipeline {
 
   stages {
     stage ('Test') {
-        agent {
+        /*agent {
           dockerfile {
               filename 'Dockerfile'
               dir '.'
           }
-        }
+        } */
         steps {
             sh 'echo install dependencies'
             sh 'echo execute our tests'
 
-            sh 'cp index.html test.html'
+            // sh 'cp index.html test.html'
         }
     }
 
