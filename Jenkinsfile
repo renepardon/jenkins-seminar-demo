@@ -12,7 +12,7 @@ pipeline {
     stage ('Checkout' ) {
 		steps {
 			checkout scm;
-			def library = Load "Function.groovy";
+			def library = Load "org.foo.Function.groovy";
 			sh 'echo Test'
 			sh 'echo library.getBranchName'
 		}
