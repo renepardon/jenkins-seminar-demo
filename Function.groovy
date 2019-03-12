@@ -1,4 +1,4 @@
-@Library('functions')
+@Library('function')
 
 def getBranchName() {
     return env.BRANCH_NAME
