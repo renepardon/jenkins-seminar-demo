@@ -1,6 +1,12 @@
 pipeline {
     agent none
-    checkout scm
+    stages {
+      stage ('checkout')
+      {
+        checkout scm  
+      }
+
+    }
     //
     // stages {
     //     stage('Test PHP 5.4') {
