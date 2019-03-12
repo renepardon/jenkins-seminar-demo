@@ -55,11 +55,13 @@ pipeline {
     }
 	*/
   }
+  /*
   post {
       always {
           echo 'here we could send a mail or slack/mattermost notification'
       }
   }
+  */
 }
 
 def getBranchName() {
