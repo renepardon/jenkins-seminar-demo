@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    import Funcitons
+    library 'Functions'
     stages {
       stage ('checkout')
       {
